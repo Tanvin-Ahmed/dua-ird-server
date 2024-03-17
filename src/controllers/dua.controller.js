@@ -121,7 +121,7 @@ GROUP BY c.cat_id;
     db.get(sql, (err, result) => {
       if (err) return res.status(404).json({ message: err.message });
       let subcategories = [];
-      if (result.subcategories)
+      if (result?.subcategories)
         subcategories = JSON.parse(result.subcategories);
 
       return res.status(200).json({ ...result, subcategories });
